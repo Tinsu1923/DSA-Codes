@@ -1,12 +1,12 @@
 #include<iostream>
 using namespace std;
-void swap(int *a,int *b){
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+void swap(int &a,int &b){
+    int temp = a;
+    a = b;
+    b = temp;
 }
-int Selection_Sort(int *a, int n){
-for (int i=0; i<n-1;i++){
+int Selection_Sort(int a[], int n){
+for (int i=0; i<n;i++){
     int index_of_min = i;
     for (int j=i+1;j < n;j++){
     if (a[j] < a[index_of_min]){
@@ -14,7 +14,7 @@ for (int i=0; i<n-1;i++){
     }
     }
     if (index_of_min != i){
-        swap(&a[index_of_min],&a[i]);
+        swap(a[index_of_min],a[i]);
     }
 }
 return *a;
